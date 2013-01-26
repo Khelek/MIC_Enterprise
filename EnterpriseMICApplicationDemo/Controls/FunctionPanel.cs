@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -13,7 +12,7 @@ namespace EnterpriseMICApplicationDemo {
 	/// </summary>
 	public class FunctionPanel : TableLayoutPanel {
 
-        public bool needPaint = true;
+		public bool needPaint = true;
 
 		public FunctionPanel() {
 			this.BorderStyle = BorderStyle.Fixed3D;
@@ -51,11 +50,11 @@ namespace EnterpriseMICApplicationDemo {
 		}
 
 		private void FunctionGroupBox_Paint(object sender, PaintEventArgs e) {
-            if ( needPaint ) {
-                Graphics g = e.Graphics;
-                DrawRectangle(g, 0, 0, this.Width, this.Height);
-                needPaint = false;
-            }
+			if (needPaint) {
+				Graphics g = e.Graphics;
+				DrawRectangle(g, 0, 0, this.Width, this.Height);
+				needPaint = false;
+			}
 		}
 
 		/// <summary>
@@ -75,16 +74,16 @@ namespace EnterpriseMICApplicationDemo {
 				} else {
 					gradient = new System.Drawing.Drawing2D.LinearGradientBrush(rec, Color.White, Color.FromArgb(251, 188, 59), System.Drawing.Drawing2D.LinearGradientMode.Horizontal);
 				}
-                Bitmap bmp = new Bitmap(this.Width, this.Height);
+				Bitmap bmp = new Bitmap(this.Width, this.Height);
 
-                Graphics gr = Graphics.FromImage(bmp);
-                gr.FillRectangle(gradient, rec);
-                this.BackgroundImage = bmp;
-                this.BackgroundImageLayout = ImageLayout.Stretch;
+				Graphics gr = Graphics.FromImage(bmp);
+				gr.FillRectangle(gradient, rec);
+				this.BackgroundImage = bmp;
+				this.BackgroundImageLayout = ImageLayout.Stretch;
 				return;
 			}
 			Brush brush = new SolidBrush(Color.FromArgb(251, 188, 59));
-			g.FillRectangle(brush, rec);            
+			g.FillRectangle(brush, rec);
 		}
 
 		#endregion
